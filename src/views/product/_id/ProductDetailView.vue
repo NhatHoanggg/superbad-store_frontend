@@ -162,6 +162,10 @@ const priceComputed = computed(() => {
 const getProduct = async () => {
   try {
     const res = await getProductApi(route.params.id)
+    if (!res.data) {
+      router.push({ name: 'not-found' })
+      return
+    }
     product.value = res.data
     console.log(product.value)
 
@@ -175,6 +179,12 @@ const getProduct = async () => {
         return false
       })
     )
+
+    if (!routeCategory || !routeSubCategory) {
+      console.error('Category or subcategory not found')
+      return
+    }
+
     routes.value.push(
       {
         name: routeCategory.name,
@@ -190,7 +200,10 @@ const getProduct = async () => {
       }
     )
   } catch (error) {
-    router.push({ name: 'not-found' })
+    console.error('Error fetching product:', error)
+    if (error.response?.status === 404) {
+      router.push({ name: 'not-found' })
+    }
   }
 }
 
