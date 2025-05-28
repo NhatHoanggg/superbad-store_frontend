@@ -113,7 +113,8 @@
       </div>
       <!-- reviews -->
       <div class="w-full ">
-        <ReviewContainer />
+        <!-- <ReviewContainer /> -->
+        <ProductReviews :product-rating="4.5" />
       </div>
     </div>
   </div>
@@ -125,7 +126,7 @@ import ANumberInput from '@/components/commons/atoms/ANumberInput.vue'
 import BreadCrumb from '@/components/commons/BreadCrumb.vue'
 import ThumbnailsProduct from '@/components/products/ThumbnailsProduct.vue'
 import ShopDetail from '@/components/profiles/ShopDetail.vue'
-import ReviewContainer from '@/components/reviews/index.vue'
+// import ReviewContainer from '@/components/reviews/index.vue'
 // services
 import { getProductApi } from '@/services/product.service'
 import { addToCartApi } from '@/services/cart.service'
@@ -139,6 +140,10 @@ import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
 import { useUserStore } from '@/stores/user.store'
+
+// comments 
+import ProductReviews from '@/components/reviews/comment/ProductReviews.vue'
+
 const userStore = useUserStore()
 // breadcrumb
 const routes = ref([
