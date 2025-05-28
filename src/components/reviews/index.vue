@@ -1,5 +1,5 @@
 <template>
-  <div class="max-lg:flex-col max-lg:w-full w-[80%] flex gap-5">
+  <!-- <div class="max-lg:flex-col max-lg:w-full w-[80%] flex gap-5">
     <OveralRating />
     <div class="flex-auto">
       <div
@@ -41,12 +41,12 @@
           </div>
         </div>
       </div>
-      <!-- comments -->
       <div class="mt-5">
         <ProductReviews />
       </div>
     </div>
-  </div>
+  </div> -->
+  <ProductReviews />
 </template>
 <script setup>
 import OveralRating from './rating/OveralRating.vue'
